@@ -1,0 +1,99 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+button,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2d2d2d;
+  color: #d9afaf;
+}
+
+input[type="color"] {
+  vertical-align: middle;
+  margin-right: 5px;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+button:hover,
+select:hover {
+  background-color: #4d4d4d;
+  cursor: pointer;
+}
+
+.settings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+label {
+  width: 48%;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+#qr-code {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#history {
+  margin-top: 20px;
+}
+
+.qr-code-history {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+
+.qr-code-history img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.qr-code-history img:hover {
+  transform: scale(1.1);
+}
+
+.download-history-btn {
+  padding: 5px 10px;
+  border: none;
+  background-color: #4d4d4d;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.download-history-btn:hover {
+  background-color: #666;
+}
