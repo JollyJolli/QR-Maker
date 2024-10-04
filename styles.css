@@ -1,99 +1,290 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reset básico */
+* {
   margin: 0;
   padding: 0;
-  background-color: #1e1e1e;
-  color: #fff;
+  box-sizing: border-box;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #007bff;
+  color: white;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
 }
 
-h1 {
-  text-align: center;
+.split-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Panel de controles (izquierda) */
+.controls {
+  width: 50%;
+  padding: 40px;
+  background-color: #f9fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+fieldset {
+  border: none;
   margin-bottom: 20px;
+}
+
+legend {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
 }
 
 input[type="text"],
+input[type="color"],
 input[type="number"],
 input[type="file"],
-button,
 select {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: #2d2d2d;
-  color: #d9afaf;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input[type="color"] {
-  vertical-align: middle;
-  margin-right: 5px;
-  padding: 0;
-  border: none;
-  background: transparent;
+input[type="text"]:focus,
+input[type="color"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
 }
 
-button:hover,
-select:hover {
-  background-color: #4d4d4d;
+.button-group {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 0 10px;
 }
 
-.settings {
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+button:active {
+  background-color: #003e7e;
+  transform: translateY(1px);
+}
+
+/* Panel de QR generado (derecha) */
+.qr-display {
+  width: 50%;
+  padding: 40px;
+  background-color: #ffffff;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-label {
-  width: 48%;
-  margin-bottom: 10px;
-  color: #ccc;
+  justify-content: center;
+  align-items: center;
 }
 
 #qr-code {
+  margin-top: 30px;
+  border: 2px dashed #ddd;
+  padding: 20px;
+  background-color: #f9fafc;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  align-items: center;
 }
 
-#history {
-  margin-top: 20px;
+#qr-code canvas {
+  max-width: 100%;
+  height: auto;
 }
 
-.qr-code-history {
-  display: inline-block;
-  margin: 10px;
+/* Estilos para el pie de página */
+footer {
   text-align: center;
+  padding: 10px 0;
+  background-color: #007bff;
+  color: white;
+  font-size: 0.9rem;
 }
 
-.qr-code-history img {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 5px;
-  border-radius: 4px;
-  transition: transform 0.3s ease;
+footer p {
+  margin: 0;
 }
 
-.qr-code-history img:hover {
-  transform: scale(1.1);
+/* --- Diseño responsivo --- */
+
+/* Ajuste en pantallas pequeñas */
+@media (max-width: 1024px) {
+  .split-container {
+      flex-direction: column;
+  }
+
+  .controls,
+  .qr-display {
+      width: 100%;
+  }
+
+  .controls {
+      padding: 20px;
+  }
+
+  header h1 {
+      font-size: 2rem;
+  }
+
+  legend {
+      font-size: 1.5rem;
+  }
+
+  button {
+      font-size: 1rem;
+      padding: 10px 15px;
+  }
+
+  #qr-code {
+      padding: 10px;
+      margin-top: 20px;
+  }
 }
 
-.download-history-btn {
-  padding: 5px 10px;
-  border: none;
-  background-color: #4d4d4d;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
+@media (max-width: 768px) {
+  header h1 {
+      font-size: 1.8rem;
+  }
+
+  legend {
+      font-size: 1.4rem;
+  }
+
+  input[type="text"],
+  input[type="color"],
+  input[type="number"],
+  input[type="file"],
+  select {
+      font-size: 0.9rem;
+      padding: 8px;
+  }
+
+  button {
+      font-size: 0.9rem;
+      padding: 8px 12px;
+  }
+
+  .input-group label {
+      font-size: 0.9rem;
+  }
 }
 
-.download-history-btn:hover {
-  background-color: #666;
+@media (max-width: 576px) {
+  header h1 {
+      font-size: 1.5rem;
+  }
+
+  .controls {
+      padding: 15px;
+  }
+
+  input[type="text"],
+  input[type="color"],
+  input[type="number"],
+  input[type="file"],
+  select {
+      font-size: 0.85rem;
+      padding: 6px;
+  }
+
+  button {
+      font-size: 0.85rem;
+      padding: 6px 10px;
+  }
+
+  legend {
+      font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+      padding: 10px;
+  }
+
+  header h1 {
+      font-size: 1.3rem;
+  }
+
+  legend {
+      font-size: 1.1rem;
+  }
+
+  .controls {
+      padding: 10px;
+  }
+
+  .qr-display {
+      padding: 10px;
+  }
+
+  button {
+      padding: 5px 8px;
+  }
+
+  #qr-code {
+      margin-top: 15px;
+  }
 }
