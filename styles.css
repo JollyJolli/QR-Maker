@@ -1,290 +1,139 @@
-/* Reset básico */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  font-family: 'Comic Sans MS', cursive;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f2f5;
+  background: linear-gradient(45deg, #FFB6C1, #FF69B4);
   color: #333;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  background-attachment: fixed;
 }
 
 header {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 3px dotted #FF1493;
+  border-radius: 20px;
+  padding: 15px;
   text-align: center;
-  padding: 20px 0;
-  background-color: #007bff;
-  color: white;
+  box-shadow: 0 8px 12px rgba(255, 20, 147, 0.3);
 }
 
-header h1 {
-  font-size: 2.5rem;
-  margin: 0;
-  font-weight: bold;
-}
-
-main {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+h1 {
+  color: #FF1493;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.5);
+  font-size: 2.5em;
+  letter-spacing: 2px;
 }
 
 .split-container {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 1200px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.2);
 }
 
-/* Panel de controles (izquierda) */
 .controls {
-  width: 50%;
-  padding: 40px;
-  background-color: #f9fafc;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 1;
+  background-color: #FFF0F5;
+  border: 2px solid #FF69B4;
+  border-radius: 15px;
+  padding: 20px;
 }
 
 fieldset {
-  border: none;
-  margin-bottom: 20px;
+  border: 3px dashed #FF69B4;
+  border-radius: 15px;
+  padding: 20px;
 }
 
 legend {
-  font-size: 1.8rem;
+  background-color: #FF69B4;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 20px;
 }
 
 .input-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-.input-group label {
-  font-weight: bold;
-  margin-bottom: 8px;
+label {
   display: block;
+  color: #8B008B;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-input[type="text"],
-input[type="color"],
-input[type="number"],
-input[type="file"],
-select {
+input, select {
   width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 8px;
+  border: 2px solid #FF69B4;
+  border-radius: 10px;
+  background-color: #FFF;
+  transition: all 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="color"]:focus,
-input[type="number"]:focus,
-select:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+input:focus, select:focus {
+  outline: none;
+  border-color: #8B008B;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
 }
 
 .button-group {
-  text-align: center;
-  margin-top: 20px;
+  display: flex;
+  gap: 10px;
 }
 
 button {
-  background-color: #007bff;
+  background-color: #FF69B4;
   color: white;
   border: none;
-  padding: 12px 20px;
-  font-size: 1.1rem;
-  border-radius: 8px;
+  padding: 10px 20px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin: 0 10px;
+  transition: transform 0.2s, background-color 0.3s;
+  font-weight: bold;
 }
 
 button:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
+  background-color: #8B008B;
+  transform: scale(1.05);
 }
 
-button:active {
-  background-color: #003e7e;
-  transform: translateY(1px);
-}
-
-/* Panel de QR generado (derecha) */
 .qr-display {
-  width: 50%;
-  padding: 40px;
-  background-color: #ffffff;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #FFF0F5;
+  border: 2px solid #FF69B4;
+  border-radius: 15px;
+  padding: 20px;
 }
 
 #qr-code {
-  margin-top: 30px;
-  border: 2px dashed #ddd;
-  padding: 20px;
-  background-color: #f9fafc;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-#qr-code canvas {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Estilos para el pie de página */
 footer {
+  margin-top: 20px;
   text-align: center;
-  padding: 10px 0;
-  background-color: #007bff;
-  color: white;
-  font-size: 0.9rem;
-}
-
-footer p {
-  margin: 0;
-}
-
-/* --- Diseño responsivo --- */
-
-/* Ajuste en pantallas pequeñas */
-@media (max-width: 1024px) {
-  .split-container {
-      flex-direction: column;
-  }
-
-  .controls,
-  .qr-display {
-      width: 100%;
-  }
-
-  .controls {
-      padding: 20px;
-  }
-
-  header h1 {
-      font-size: 2rem;
-  }
-
-  legend {
-      font-size: 1.5rem;
-  }
-
-  button {
-      font-size: 1rem;
-      padding: 10px 15px;
-  }
-
-  #qr-code {
-      padding: 10px;
-      margin-top: 20px;
-  }
+  color: #8B008B;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 15px;
 }
 
 @media (max-width: 768px) {
-  header h1 {
-      font-size: 1.8rem;
-  }
-
-  legend {
-      font-size: 1.4rem;
-  }
-
-  input[type="text"],
-  input[type="color"],
-  input[type="number"],
-  input[type="file"],
-  select {
-      font-size: 0.9rem;
-      padding: 8px;
-  }
-
-  button {
-      font-size: 0.9rem;
-      padding: 8px 12px;
-  }
-
-  .input-group label {
-      font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 576px) {
-  header h1 {
-      font-size: 1.5rem;
-  }
-
-  .controls {
-      padding: 15px;
-  }
-
-  input[type="text"],
-  input[type="color"],
-  input[type="number"],
-  input[type="file"],
-  select {
-      font-size: 0.85rem;
-      padding: 6px;
-  }
-
-  button {
-      font-size: 0.85rem;
-      padding: 6px 10px;
-  }
-
-  legend {
-      font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-      padding: 10px;
-  }
-
-  header h1 {
-      font-size: 1.3rem;
-  }
-
-  legend {
-      font-size: 1.1rem;
-  }
-
-  .controls {
-      padding: 10px;
-  }
-
-  .qr-display {
-      padding: 10px;
-  }
-
-  button {
-      padding: 5px 8px;
-  }
-
-  #qr-code {
-      margin-top: 15px;
+  .split-container {
+      flex-direction: column;
   }
 }
